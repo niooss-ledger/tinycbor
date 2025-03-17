@@ -144,6 +144,10 @@
 static inline bool convertToUint64(double v, uint64_t *absolute)
 {
     double supremum;
+
+    if (isnan(v))
+        return false;
+
     v = fabs(v);
 
     /* C11 standard section 6.3.1.4 "Real floating and integer" says:
